@@ -37,6 +37,8 @@
       // Initialize Cloud Firestore through Firebase
       var db = firebase.firestore();
 
+      //데이터 생성
+      //add는 자동으로 ID를 생성하는 것.
       // db.collection("users").add({
       //     first: "Ada",
       //     last: "Lovelace",
@@ -48,6 +50,27 @@
       // .catch(function(error) {
       //     console.error("Error adding document: ", error);
       // });
+
+      //데이터 생성
+      //이것도 중복은 안되네? 덮어씌워짐.
+      //set은 아이디를 지정해주는방식.
+      // db.collection("cities").doc("LA").set({
+      //     name: "Los Angeles",
+      //     state: "where?",
+      //     country: "USA"
+      // })
+      // .then(function() {
+      //     console.log("Document successfully written!");
+      // })
+      // .catch(function(error) {
+      //     console.error("Error writing document: ", error);
+      // });
+
+      //데이터 생성
+      // var cityRef = db.collection('cities').doc("seoul");
+      // var setWithMerge = cityRef.set({
+      //   capital: "good?"
+      // }, {merge: true});
 
       // // Add a second document with a generated ID.
       // db.collection("users").add({
@@ -63,12 +86,22 @@
       //     console.error("Error adding document: ", error);
       // });
 
-      //데이터 읽기
-      db.collection("users").get().then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-          console.log(`${doc.id} => ${doc.data()}`);
-        });
-      });
+      // //데이터 삭제
+      // //음..doc.id값을 넣으니깐 삭제되네.
+      // var deleteDoc = db.collection("users").doc("UDJiO9VOWx5YsC64IoIT").delete();
+
+      // db.collection("users").doc("UDJiO9VOWx5YsC64IoIT").update({
+      //   first: 
+      // })
+
+      // //데이터 읽기
+      // db.collection("users").get().then((querySnapshot) => {
+      //   console.log("querySnapshot : ", querySnapshot);
+      //   querySnapshot.forEach((doc) => {
+      //     console.log(doc.id, '=>', doc.data());
+      //   });
+      // });
+
     </script>
   </body>
 </html>
