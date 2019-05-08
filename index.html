@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset = "UTF-8">
+  </head>
+  <body>
+    <h1>firebase tutorial</h1>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/6.0.0/firebase-app.js"></script>
+
+    <script>
+      var firebaseConfig = {
+        apiKey: "AIzaSyCadt_h6Pl3Czx5D3CD6zmnHZP-W2hPmOA",
+        authDomain: "test-8f512.firebaseapp.com",
+        databaseURL: "https://test-8f512.firebaseio.com",
+        projectId: "test-8f512",
+        storageBucket: "test-8f512.appspot.com",
+        messagingSenderId: "898956490189",
+        appId: "1:898956490189:web:5183d4c51d584fac"
+      };
+
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+    <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-firestore.js"></script>
+
+    <script>
+      console.log("working?")
+      firebase.initializeApp({
+        apiKey: "AIzaSyCadt_h6Pl3Czx5D3CD6zmnHZP-W2hPmOA",
+        authDomain: "test-8f512.firebaseapp.com",
+        projectId: "test-8f512",
+      });
+
+      // Initialize Cloud Firestore through Firebase
+      var db = firebase.firestore();
+
+      // db.collection("users").add({
+      //     first: "Ada",
+      //     last: "Lovelace",
+      //     born: 1815
+      // })
+      // .then(function(docRef) {
+      //     console.log("Document written with ID: ", docRef.id);
+      // })
+      // .catch(function(error) {
+      //     console.error("Error adding document: ", error);
+      // });
+
+      // // Add a second document with a generated ID.
+      // db.collection("users").add({
+      //     first: "Alan",
+      //     middle: "Mathison",
+      //     last: "Turing",
+      //     born: 1912
+      // })
+      // .then(function(docRef) {
+      //     console.log("Document written with ID: ", docRef.id);
+      // })
+      // .catch(function(error) {
+      //     console.error("Error adding document: ", error);
+      // });
+
+      //데이터 읽기
+      db.collection("users").get().then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          console.log(`${doc.id} => ${doc.data()}`);
+        });
+      });
+    </script>
+  </body>
+</html>
